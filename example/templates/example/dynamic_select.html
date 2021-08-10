@@ -1,0 +1,11 @@
+<div style="display: none" hx-post="/dynamic-select/{{ app_label }}/{{ model_name }}/{{ field_name }}/" hx-trigger="change from:#{{ model_name }}_form" hx-target="#id_{{ field_name }}" hx-swap="outerHTML">
+</div>
+
+{% include 'django/forms/widgets/select.html' %}
+
+<script>
+    // Needed to prevent django-jazzmin from converting all
+    // select elements into Select2 widgets. These widgets currently
+    // don't work with the htmx logic included here.
+    django.jQuery('select').addClass("selectfilter");
+</script>
