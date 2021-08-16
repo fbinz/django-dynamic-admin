@@ -20,7 +20,7 @@ class Customer(models.Model):
 
     name = models.CharField(max_length=255)
     district = models.ForeignKey(District, on_delete=models.CASCADE)
-    employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
+    employee = models.ForeignKey(Employee, on_delete=models.CASCADE, blank=False)
 
     def __str__(self):
         return self.name
